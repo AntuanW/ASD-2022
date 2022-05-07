@@ -1,4 +1,3 @@
-#todo
 def find_spot(A):
     def partition(A, p, r):
         x = A[r]
