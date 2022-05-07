@@ -1,7 +1,23 @@
-#todo
-from queue import Queue
-def DFS_lists(G, s):
-    return 0
+def DFS_lists(G):
+
+    def DFS_visit(u):
+        nonlocal time, visited, parent, G
+        time += 1
+        visited[u] = True
+        for v in G[u]:
+            if not visited[v]:
+                parent[v] = u
+                DFS_visit(v)
+        time += 1
+
+    n = len(G)
+    visited = [False]*n
+    parent = [None]*n
+    time = 0
+    for u in range(n):
+        if not visited[u]:
+            DFS_visit(u)
+    return parent
 
 G = [
     [1, 2], #A
