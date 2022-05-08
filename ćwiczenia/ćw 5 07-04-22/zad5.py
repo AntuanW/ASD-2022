@@ -1,42 +1,46 @@
-#todo
+def zad_5(A, k):  # A = [a1, a2, a3, ..., an]
 
-# do poprawy
-def zad5(A, k):
-    INF = float('inf')
-    n = len(A)
-    S = [0] * (n + 1)
-    for i in range(1, n + 1):
-        S[i] = S[i - 1] + A[i - 1]
-
-    def find_sum(i, j):
-        nonlocal S
-        return S[j + 1] - S[i]
-
-    F = [[None for _ in range(k + 1)] for _ in range(n)]
-    for i in range(n):
-        F[i][0] = INF
-    for i in range(1, k + 1):
-        F[0][i] = INF
+    def find_sum(i, j):  # suma od a1 do aj
+        nonlocal prefix
+        if i == 1:
+            return prefix[j - 1]
+        else:
+            return prefix[j - 1] - prefix[i - 2]
 
     def rek(i, t):
-        nonlocal F, A
+        nonlocal F, INF
         if F[i][t] is not None: return F[i][t]
-        if i == t:
-            F[i][t] = min(A[:i])
-            return F[i][t]
-        else:
-            maksi = -INF
-            for l in range(t - 1, i):
-                res = min(rek(l, t - 1), find_sum(l + 1, i))
-                maksi = max(maksi, res)
-            F[i][t] = maksi
-            return maksi
+        for o in range(1, t):
+            best = min(rek(i - o, t - 1), find_sum(i - o + 1, i))
+        F[i][t] = best
+        return F[i][t]
 
-    rek(n - 1, k)
+    INF = float('inf')
+    n = len(A)
+    prefix = [A[0]] * n
+    for i in range(1, len(A)):
+        prefix[i] = prefix[i - 1] + A[i]
 
-    return F
+    F = [[None for _ in range(k + 1)] for _ in range(n + 1)]
+
+    for i in range(1, n + 1):
+        F[i][1] = find_sum(1, i)
+
+    for i in range(1, k + 1):
+        F[i][i] = min(A[:i])
+
+    for i in range(n + 1):
+        F[i][0] = INF
+
+    for i in range(k + 1):
+        F[0][i] = INF
+
+    F[n][k] = rek(n, k)
+
+    return F[n][k]
 
 
-x = zad5([3, 5, 7, 1, 4, 6, 1, 3, 4, 5], 4)
-for i in range(len(x)):
-    print(x[i])
+A = [5, 6, 1, 3, 12, 1, 6, 5, 8, 2, 7]
+k = 3
+x = zad_5(A, k)
+print(x)
