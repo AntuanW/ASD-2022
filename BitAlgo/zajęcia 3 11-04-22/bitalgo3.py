@@ -146,10 +146,4 @@ def zad_9():
 
 if __name__ == '__main__':
 
-    word = 'dabbad'
-
-    x = zad_8(word)
-    #print(x)
-    #for i in range(len(x)): print(x[i])
-
     pass
