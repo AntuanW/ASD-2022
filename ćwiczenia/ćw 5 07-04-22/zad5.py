@@ -10,8 +10,9 @@ def zad_5(A, k):  # A = [a1, a2, a3, ..., an]
     def rek(i, t):
         nonlocal F, INF
         if F[i][t] is not None: return F[i][t]
-        for o in range(1, t):
-            best = min(rek(i - o, t - 1), find_sum(i - o + 1, i))
+        best = -INF
+        for o in range(t, i):
+            best = max(best, min(rek(o, t - 1), find_sum(o + 1, i)))
         F[i][t] = best
         return F[i][t]
 
@@ -41,6 +42,6 @@ def zad_5(A, k):  # A = [a1, a2, a3, ..., an]
 
 
 A = [5, 6, 1, 3, 12, 1, 6, 5, 8, 2, 7]
-k = 3
+k = 4
 x = zad_5(A, k)
 print(x)
