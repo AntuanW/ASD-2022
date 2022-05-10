@@ -23,7 +23,7 @@ def zaba(A):  # zaba ale dynamicznie
     return F
 
 
-A = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+A = [1, 1, 1, 1, 1, 1, 1]
 x = zaba(A)
 for i in range(len(x)):
     print(x[i])
