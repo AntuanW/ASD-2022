@@ -1,3 +1,17 @@
+"""
+Złożoność:
+rep. macierzowa -> O(V^2)
+rep. listowa -> O(V + E)
+
+Zastosowania:
+-spójność,
+-dwudzielność,
+-wykrywanie cykli,
+-sortowanie topologiczne,
+-cykl Eulera,
+-silnie spójne składowe,
+-mosty/pkt. artykulacji
+"""
 def DFS_lists(G):
 
     def DFS_visit(u):
