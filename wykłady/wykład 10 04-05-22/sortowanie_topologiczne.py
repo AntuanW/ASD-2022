@@ -1,6 +1,3 @@
-#todo
-from collections import deque
-
 def topological_sort(G):
 
     def DFS_visit(u):
