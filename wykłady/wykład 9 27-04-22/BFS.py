@@ -1,3 +1,15 @@
+"""
+Złozoność:
+rep. macierzowa -> O(V^2)
+rep. listowa -> O(V + E)
+
+Zastosowania:
+-najkrótsze ścieżki (w grafie bez wag),
+-spójność grafu,
+-wykrywanie cykli,
+-dwudzielność
+"""
+
 from queue import Queue
 
 # lista sąsiedztwa
