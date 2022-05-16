@@ -1,4 +1,3 @@
-#todo
 def silnie_spojne_skladowe(G):
     def reverse_edges(G):
         n = len(G)
