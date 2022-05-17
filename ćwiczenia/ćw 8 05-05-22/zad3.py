@@ -1,5 +1,5 @@
-#todo
 from collections import deque
+
 def path(G, start, meta):
 
     def BFS(s):
