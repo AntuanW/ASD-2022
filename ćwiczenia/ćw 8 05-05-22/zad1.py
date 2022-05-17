@@ -1,5 +1,5 @@
-#todo
 from collections import deque
+
 
 def czy_dwudzielny(G):
     n = len(G)
