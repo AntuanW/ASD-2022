@@ -1,4 +1,3 @@
-# todo
 def zad_1(A):
     n = len(A)
     F = [[0 for _ in range(n)] for _ in range(n)]
