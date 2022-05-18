@@ -1,5 +1,6 @@
 from collections import deque
 
+
 def decreasing_path(G, x, y):
 
     n = len(G)
