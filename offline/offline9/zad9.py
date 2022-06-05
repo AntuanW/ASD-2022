@@ -29,7 +29,7 @@ def maxflow( G,s ):
             visited[s] = True
             parent = [None] * n
             Q.append(s)
-            while len(Q) != 0:
+            while len(Q) != 0 and not visited[t]:
                 u = Q.popleft()
                 for v in range(n):
                     if C[u][v] - F[u][v] > 0 and not visited[v]:
