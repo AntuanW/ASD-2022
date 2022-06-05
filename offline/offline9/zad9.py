@@ -5,6 +5,7 @@ Edmondsa - karpia. Sprowadza się to wtedy do problemu minimlanego przepływu z 
 Złożoność O(V^3 E^2)
 """
 
+
 from zad9testy import runtests
 
 def maxflow( G,s ):
