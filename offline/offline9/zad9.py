@@ -1,3 +1,10 @@
+#Antoni Wójcik
+"""
+Algorytm brute-force. Dla każdej pary wierzchołków u,v wsród których nie ma wierzchołka s, obliczam maksymalny przepływ algorytmem
+Edmondsa - karpia. Sprowadza się to wtedy do problemu minimlanego przepływu z 2 ujściami - korzystam z triku i tworzę superujście.
+Złożoność O(V^3 E^2)
+"""
+
 from zad9testy import runtests
 
 def maxflow( G,s ):
