@@ -14,15 +14,20 @@ def maxflow( G,s ):
     def build_graph(G, a, b):
         n = max(G, key=lambda x: x[1])[1] + 1
         graph = [[0 for _ in range(n + 1)] for _ in range(n + 1)]
+        list_graph = [[] for _ in range(n+1)]
         for i in G:
             graph[i[0]][i[1]] = i[2]
+            list_graph[i[0]].append(i[1])
         graph[a][n] = float('inf')
         graph[b][n] = float('inf')
-        return graph
+        list_graph[a].append(n)
+        list_graph[b].append(n)
 
-    def Edmonds_Karp(C, s, t):
+        return graph, list_graph
 
-        def BFS(C, s, t, F):
+    def Edmonds_Karp(C, s, t, list_graph):
+
+        def BFS(C, s, t, F, list_graph):
             n = len(C)
             Q = deque()
             visited = [False] * n
@@ -31,7 +36,7 @@ def maxflow( G,s ):
             Q.append(s)
             while len(Q) != 0 and not visited[t]:
                 u = Q.popleft()
-                for v in range(n):
+                for v in list_graph[u]:
                     if C[u][v] - F[u][v] > 0 and not visited[v]:
                         parent[v] = u
                         visited[v] = True
@@ -50,7 +55,7 @@ def maxflow( G,s ):
         n = len(C)
         F = [[0] * n for _ in range(n)]
         while True:
-            m, parent = BFS(C, s, t, F)
+            m, parent = BFS(C, s, t, F, list_graph)
             if m == 0:
                 break
             flow += m
@@ -68,8 +73,8 @@ def maxflow( G,s ):
     for i in range(n):
         for j in range(i, n):
             if i != s and j != s:
-                M = build_graph(G, i, j)
-                res = Edmonds_Karp(M, s, n)
+                M, list_graph = build_graph(G, i, j)
+                res = Edmonds_Karp(M, s, n, list_graph)
                 if res > best:
                     best = res
     return best
