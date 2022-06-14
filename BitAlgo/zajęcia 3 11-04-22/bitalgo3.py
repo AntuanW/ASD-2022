@@ -1,4 +1,3 @@
-#todo
 def zad_1(P):   #ciecie preta
     n = len(P)
     F = [0]*(n+1)
