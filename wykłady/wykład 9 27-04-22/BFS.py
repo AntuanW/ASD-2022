@@ -10,6 +10,13 @@ Zastosowania:
 -dwudzielność
 """
 
+"""
+from collections import deque
+Q.put() -> Q.append()
+Q.pop() -> Q.popleft()
+Q.empty() -> len(Q) == 0
+"""
+
 from queue import Queue
 
 # lista sąsiedztwa
