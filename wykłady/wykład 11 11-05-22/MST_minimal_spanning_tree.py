@@ -1,6 +1,13 @@
 from queue import PriorityQueue
 
-
+"""
+Faster find:
+    def find(x):
+        while x.parent != x:
+            x.parent = x.parent.parent
+            x = x.parent
+        return x
+"""
 class Node:
     def __init__(self, value):
         self.parent = self
