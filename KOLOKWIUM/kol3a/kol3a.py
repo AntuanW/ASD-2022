@@ -6,7 +6,6 @@ Najpierw przygotowuję graf dodając krawędzie miedzy osobliwościami z wagą 0
 Następnie znajduję najkrótszą ścieżkę między wierzchołkami a i b uzywając algorytmu Dijkstry.
 Złożoność czasowa: O(n^2)
 """
-
 from kol3atesty import runtests
 import heapq
 
