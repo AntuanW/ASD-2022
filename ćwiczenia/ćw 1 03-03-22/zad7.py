@@ -30,4 +30,3 @@ def find_sum(A, x): #A[j] + A[i] = x
         return A[i], A[j]
     else:
         return False
-
