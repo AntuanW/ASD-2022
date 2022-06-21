@@ -1,3 +1,5 @@
+#todo
+
 """
 F[T] - min liczba klocków które należy ukraść aby ułożyć wieżę o wysokości >= T
 Wartościami T są kolejne poziomy każdej klockowej wieży + 1.
