@@ -2,7 +2,11 @@ from zad2testy import runtests
 
 
 def breaking(G):
-    # tu prosze wpisac wlasna implementacje
+    """
+    Szukamy punktów artykulacji oraz sprawdzamy kandydatów.
+    :param G:
+    :return:
+    """
     return None
 
 
