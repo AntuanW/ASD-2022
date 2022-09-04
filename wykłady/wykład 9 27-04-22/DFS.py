@@ -37,6 +37,20 @@ def DFS_lists(G):
             DFS_visit(u)
     return prev, post
 
+#DFS matrix
+def DFS(graph, root):
+    def dfs_visit(u, graph, visited, result):
+        visited[u] = True
+        result.append(u)
+        for i in range(len(graph)):
+            if visited[i] is False and graph[u][i] == 1:
+                dfs_visit(i, graph, visited, result)
+    visited = [False] * len(graph)
+    result = []
+    dfs_visit(root, graph, visited, result)
+    return result
+
+
 G = [
     [1, 2], #A
     [0, 4], #B
